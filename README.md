@@ -6,7 +6,7 @@ The project includes data preprocessing, vocabulary construction, text encoding,
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 With the increasing amount of textual content available online, manually analyzing opinions and feedback is time-consuming and difficult to scale.
 
@@ -21,7 +21,7 @@ The system uses Natural Language Processing techniques to transform unstructured
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 The main objectives of this project are:
 
@@ -39,7 +39,7 @@ The main objectives of this project are:
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 The project uses the **IMDB Movie Review Dataset**, containing **50,000 movie reviews** labeled as either positive or negative.
 
@@ -79,7 +79,7 @@ data/IMDB Dataset.csv
 
 ---
 
-## 🔍 Exploratory Data Analysis
+## Exploratory Data Analysis
 
 The dataset was loaded and inspected using Pandas.
 
@@ -108,7 +108,7 @@ The balanced distribution makes the dataset suitable for binary sentiment classi
 
 ---
 
-## 🧠 Project Approach
+## Project Approach
 
 The complete system follows the pipeline below:
 
@@ -155,7 +155,7 @@ The complete system follows the pipeline below:
 
 ---
 
-# 🧹 Text Preprocessing
+# Text Preprocessing
 
 Raw movie reviews cannot be directly passed into the neural network. Therefore, a preprocessing pipeline was implemented.
 
@@ -197,7 +197,7 @@ Multiple spaces are replaced with a single space and leading/trailing whitespace
 
 ---
 
-# 🔤 Tokenization
+# Tokenization
 
 After cleaning the text, each review is split into individual words.
 
@@ -217,7 +217,7 @@ The project uses simple whitespace-based tokenization.
 
 ---
 
-# 📚 Vocabulary Construction
+# Vocabulary Construction
 
 A custom vocabulary was created from the training reviews.
 
@@ -238,7 +238,7 @@ Therefore, the final vocabulary contains:
 
 ---
 
-# 🔢 Integer Encoding
+# Integer Encoding
 
 The vocabulary maps each word to a numerical index.
 
@@ -264,7 +264,7 @@ This converts natural language into numerical data that can be processed by PyTo
 
 ---
 
-# 📏 Sequence Padding and Truncation
+# Sequence Padding and Truncation
 
 Movie reviews have different lengths.
 
@@ -294,7 +294,7 @@ Therefore, every input to the model has the same shape:
 
 ---
 
-# 🏗️ Model Architecture
+# Model Architecture
 
 The sentiment classifier is implemented using **PyTorch**.
 
@@ -339,7 +339,7 @@ Positive / Negative
 
 ---
 
-# 🔤 Word Embedding Layer
+# Word Embedding Layer
 
 The first component of the model is a trainable embedding layer:
 
@@ -355,7 +355,7 @@ The embedding output is then passed into the LSTM.
 
 ---
 
-# 🔁 LSTM Layer
+# LSTM Layer
 
 The core of the model is a **Long Short-Term Memory (LSTM)** network.
 
@@ -375,7 +375,7 @@ The LSTM processes the sequence and produces a final hidden representation conta
 
 ---
 
-# 🎯 Fully Connected Layer
+# Fully Connected Layer
 
 The final hidden state of the LSTM is passed through a fully connected layer:
 
@@ -436,7 +436,7 @@ The decrease in loss indicates that the model was learning patterns from the tra
 
 ---
 
-# 📈 Model Performance
+# Model Performance
 
 The trained model achieved:
 
@@ -462,7 +462,7 @@ The model correctly classified approximately **8,658 out of 10,000** test review
 
 ---
 
-# 💾 Model Serialization
+# Model Serialization
 
 After training, the model parameters were saved using PyTorch.
 
@@ -486,7 +486,7 @@ These files allow the Streamlit application to perform inference without retrain
 
 ---
 
-# 🌐 Streamlit Application
+# Streamlit Application
 
 The trained model was integrated into an interactive **Streamlit web application**.
 
@@ -521,7 +521,7 @@ Positive / Negative
 
 ---
 
-# 🖥️ Application Screenshots
+# Application Screenshots
 
 ## Final Streamlit Interface
 
@@ -533,7 +533,7 @@ Positive / Negative
 
 ---
 
-# 🧪 Example Predictions
+# Example Predictions
 
 ## Example 1 — Positive Review
 
@@ -603,7 +603,8 @@ sentiment-analysis-lstm/
 ├── src/
 │   ├── __init__.py
 │   ├── dataset.py
-│   └── model_v2.py
+|   ├── file.py
+│   └── model.py
 │
 ├── app.py
 ├── requirements.txt
@@ -623,7 +624,7 @@ sentiment-analysis-lstm/
 | `notebooks/sentiment_analysis.ipynb` | Model development, training, evaluation, and experimentation |
 | `screenshots/` | Screenshots of the Streamlit application |
 | `src/dataset.py` | Custom PyTorch Dataset implementation |
-| `src/model_v2.py` | LSTM sentiment classification architecture |
+| `src/model.py` | LSTM sentiment classification architecture |
 | `app.py` | Streamlit application for real-time predictions |
 | `requirements.txt` | Required Python dependencies |
 | `sentiment_model.pth` | Saved trained model weights |
